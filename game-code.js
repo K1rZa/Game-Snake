@@ -21,7 +21,6 @@ let food = {
 let snake = []
 snake[0] = {
 	x: 9 * tile,
-	
 	y: 10 * tile,
 }
 

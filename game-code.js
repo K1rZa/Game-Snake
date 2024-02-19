@@ -5,6 +5,10 @@ const ground_img = new Image()
 ground_img.src = 'Resources/ground.png'
 const food_img = new Image()
 food_img.src = 'Resources/food.png'
+const snakehead_img = new Image()
+snakehead_img.src = ''
+const snakecell_img = new Image()
+snakecell_img.src = ''
 
 const tile = 32
 const width_coef = snake_game.width / tile
@@ -43,9 +47,11 @@ function food_position() {
 function snake_draw() {
 	for (let i = 0; i < snake.length; i++) {
 		if (i == 0) {
+			//context.drawImage(snakehead_img, snakehead.x, snakehead.y)
 			context.fillStyle = 'red'
 			context.fillRect(snakehead.x, snakehead.y, tile, tile)
 		} else {
+			//context.drawImage(snakecell_img, snake[i].x, snake[i].y)
 			context.fillStyle = 'blue'
 			context.fillRect(snake[i].x, snake[i].y, tile, tile)
 		}

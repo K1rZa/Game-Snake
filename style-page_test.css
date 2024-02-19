@@ -1,0 +1,15 @@
+body {
+	background: black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+canvas {
+	border: 1px solid yellow;
+}
+#game {
+	width: 960px;
+	height: 960px;
+
+	background-color: aqua;
+}

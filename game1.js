@@ -2,13 +2,16 @@ const canvas = document.getElementById('snake_game')
 const ctx = canvas.getContext('2d')
 
 const ground = new Image()
-ground.src = ''
+ground.src = 'Resources/ground.png'
 
 const foodImg = new Image()
-foodImg.src = ''
+foodImg.src = 'Resources/food1.png'
 
 const snakehead_img = new Image()
-snakehead_img.src = ''
+snakehead_img.src = 'Resources/golova.png'
+
+const snakecell_img = new Image()
+snakecell_img.src = 'Resources/cell.png'
 
 const tile = 32
 const width_coef = snake_game.width / tile
@@ -64,13 +67,13 @@ function food_position() {
 function snake_draw() {
 	for (let i = 0; i < snake.length; i++) {
 		if (i == 0) {
-			//ctx.drawImage(snakehead_img, snakehead.x, snakehead.y)
-			ctx.fillStyle = 'red'
-			ctx.fillRect(snakehead.x, snakehead.y, tile, tile)
+			ctx.drawImage(snakehead_img, snakehead.x, snakehead.y)
+			//ctx.fillStyle = 'red'
+			//ctx.fillRect(snakehead.x, snakehead.y, tile, tile)
 		} else {
-			//context.drawImage(snakecell_img, snake[i].x, snake[i].y)
-			ctx.fillStyle = 'blue'
-			ctx.fillRect(snake[i].x, snake[i].y, tile, tile)
+			ctx.drawImage(snakecell_img, snake[i].x, snake[i].y)
+			//ctx.fillStyle = 'blue'
+			//ctx.fillRect(snake[i].x, snake[i].y, tile, tile)
 		}
 	}
 }

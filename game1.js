@@ -2,10 +2,10 @@ const canvas = document.getElementById('snake_game')
 const ctx = canvas.getContext('2d')
 
 const ground = new Image()
-ground.src = 'img/ground.png'
+ground.src = ''
 
 const foodImg = new Image()
-foodImg.src = 'img/food.png'
+foodImg.src = ''
 
 const snakehead_img = new Image()
 snakehead_img.src = ''
@@ -29,7 +29,7 @@ snake[0] = {
 }
 let snakehead = {
 	x: snake[0].x,
-	y: snake[0].y
+	y: snake[0].y,
 }
 
 document.addEventListener('keydown', direction)

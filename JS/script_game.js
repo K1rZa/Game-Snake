@@ -2,10 +2,10 @@ const canvas = document.getElementById('snake_game')
 const ctx = canvas.getContext('2d')
 
 const ground = new Image()
-ground.src = 'Resources/ground.png'
+ground.src = './Resources/level.png'
 
 const foodImg = new Image()
-foodImg.src = 'Resources/food1.png'
+foodImg.src = './Resources/food.png'
 
 //const snakehead_img = new Image()
 //snakehead_img.src = 'Resources/golova.png'

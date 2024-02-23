@@ -134,14 +134,14 @@ function drawGame() {
 
 	//set_speed()
 
-	let newHead = {
+	let new_snakehead = {
 		x: snakehead.x,
 		y: snakehead.y,
 	}
 
-	snake_eat_tail(newHead, snake)
+	snake_eat_tail(new_snakehead, snake)
 
-	snake.unshift(newHead)
+	snake.unshift(new_snakehead)
 }
 
 let game = setInterval(drawGame, speed)

@@ -17,8 +17,8 @@ const tile = 32
 const width_coef = snake_game.width / tile
 const height_coef = snake_game.height / tile
 
-var speed = 125
-var score = 0
+let speed = 125
+let score = 0
 
 let food = {
 	x: food_position().x,

@@ -7,18 +7,18 @@ ground.src = 'Resources/ground.png'
 const foodImg = new Image()
 foodImg.src = 'Resources/food1.png'
 
-const snakehead_img = new Image()
-snakehead_img.src = 'Resources/golova.png'
+//const snakehead_img = new Image()
+//snakehead_img.src = 'Resources/golova.png'
 
-const snakecell_img = new Image()
-snakecell_img.src = 'Resources/cell.png'
+//const snakecell_img = new Image()
+//snakecell_img.src = 'Resources/cell.png'
 
 const tile = 32
 const width_coef = snake_game.width / tile
 const height_coef = snake_game.height / tile
 
-var speed = 1
-let score = 0
+var speed = 125
+var score = 0
 
 let food = {
 	x: food_position().x,
@@ -51,11 +51,9 @@ function snake_move() {
 	if (dir == 'up') snakehead.y -= tile
 	if (dir == 'down') snakehead.y += tile
 }
-
 function random_int(min, max) {
 	return Math.floor(Math.random() * (max - (min - 1))) + min
 }
-
 function food_position() {
 	let x = random_int(2, width_coef - 4) * tile
 	let y = random_int(5, height_coef - 4) * tile
@@ -67,13 +65,13 @@ function food_position() {
 function snake_draw() {
 	for (let i = 0; i < snake.length; i++) {
 		if (i == 0) {
-			ctx.drawImage(snakehead_img, snakehead.x, snakehead.y)
-			//ctx.fillStyle = 'red'
-			//ctx.fillRect(snakehead.x, snakehead.y, tile, tile)
+			//ctx.drawImage(snakehead_img, snakehead.x, snakehead.y)
+			ctx.fillStyle = 'red'
+			ctx.fillRect(snakehead.x, snakehead.y, tile, tile)
 		} else {
-			ctx.drawImage(snakecell_img, snake[i].x, snake[i].y)
-			//ctx.fillStyle = 'blue'
-			//ctx.fillRect(snake[i].x, snake[i].y, tile, tile)
+			//ctx.drawImage(snakecell_img, snake[i].x, snake[i].y)
+			ctx.fillStyle = 'blue'
+			ctx.fillRect(snake[i].x, snake[i].y, tile, tile)
 		}
 	}
 }
@@ -93,11 +91,30 @@ function snake_eat() {
 		snake.pop()
 	}
 }
-
-function eatTail(head, arr) {
+//function set_speed() {
+//	if (score == 2) {
+//		speed = speed - 25
+//	}
+//	if (score == 5) {
+//		speed = speed - 50
+//	}
+//	if (score == 7) {
+//		speed = speed - 75
+//	}
+//}
+function snake_eat_tail(head, arr) {
 	for (let i = 0; i < arr.length; i++) {
 		if (head.x == arr[i].x && head.y == arr[i].y) clearInterval(game)
 	}
+}
+function snake_wall() {
+	if (
+		snakehead.x < 2 * tile ||
+		snakehead.x > tile * (width_coef - 3) ||
+		snakehead.y < 4 * tile ||
+		snakehead.y > tile * (height_coef - 4)
+	)
+		clearInterval(game)
 }
 
 function drawGame() {
@@ -111,26 +128,20 @@ function drawGame() {
 
 	snake_eat()
 
-	if (
-		snakehead.x < tile ||
-		snakehead.x > tile * 17 ||
-		snakehead.y < 3 * tile ||
-		snakehead.y > tile * 17
-	)
-		clearInterval(game)
+	snake_wall()
 
 	snake_move()
+
+	//set_speed()
 
 	let newHead = {
 		x: snakehead.x,
 		y: snakehead.y,
 	}
 
-	eatTail(newHead, snake)
+	snake_eat_tail(newHead, snake)
 
 	snake.unshift(newHead)
 }
 
-let game = setInterval(drawGame, 125)
-
-//
+let game = setInterval(drawGame, speed)

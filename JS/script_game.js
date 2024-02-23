@@ -8,7 +8,7 @@ const foodImg = new Image()
 foodImg.src = './Resources/food.png'
 
 //const snakehead_img = new Image()
-//snakehead_img.src = 'Resources/golova.png'
+//snakehead_img.src = './Resources/snake_head_v2.png'
 
 //const snakecell_img = new Image()
 //snakecell_img.src = 'Resources/cell.png'

@@ -68,9 +68,9 @@ function food_position() {
 function snake_draw() {
 	for (let i = 0; i < snake.length; i++) {
 		if (i == 0) {
-			ctx.drawImage(snakehead_img, snakehead.x, snakehead.y)
-			//ctx.fillStyle = 'red'
-			//ctx.fillRect(snakehead.x, snakehead.y, tile, tile)
+			//ctx.drawImage(snakehead_img, snakehead.x, snakehead.y)
+			ctx.fillStyle = 'red'
+			ctx.fillRect(snakehead.x, snakehead.y, tile, tile)
 		} else {
 			//ctx.drawImage(snakecell_img, snake[i].x, snake[i].y)
 			ctx.fillStyle = 'blue'

@@ -4,8 +4,12 @@ const ctx = canvas.getContext('2d')
 const ground = new Image()
 ground.src = './Resources/level.png'
 
-const foodImg = new Image()
-foodImg.src = './Resources/Pixel_Snake/food1.png'
+const foodImg1 = new Image()
+foodImg1.src = './Resources/Pixel_Snake/food1.png'
+const foodImg2 = new Image()
+foodImg2.src = './Resources/Pixel_Snake/food2.png'
+const foodImg3 = new Image()
+foodImg3.src = './Resources/Pixel_Snake/food3.png'
 
 const snakehead_img = new Image()
 snakehead_img.src = './Resources/Pixel_Snake/snake_head_up.png'
@@ -38,7 +42,6 @@ let snakehead = {
 document.addEventListener('keydown', direction)
 
 let dir
-
 function direction(event) {
 	if (event.keyCode == 37 && dir != 'right') dir = 'left'
 	else if (event.keyCode == 38 && dir != 'down') dir = 'up'
@@ -74,9 +77,12 @@ function food_position() {
 		y: y,
 	}
 }
-
-
-
+let id = random_int(1, 3)
+function food_random() {
+	if (id == 1) ctx.drawImage(foodImg1, food.x, food.y)
+	if (id == 2) ctx.drawImage(foodImg3, food.x, food.y)
+	if (id == 3) ctx.drawImage(foodImg2, food.x, food.y)
+}
 function snake_draw() {
 	for (let i = 0; i < snake.length; i++) {
 		if (i == 0) {
@@ -122,7 +128,7 @@ function snake_wall() {
 function drawGame() {
 	ctx.drawImage(ground, 0, 0)
 
-	ctx.drawImage(foodImg, food.x, food.y)
+	food_random()
 
 	snake_draw()
 

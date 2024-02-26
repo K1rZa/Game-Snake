@@ -5,11 +5,11 @@ const ground = new Image()
 ground.src = './Resources/Stone_Narena.png'
 
 const foodImg1 = new Image()
-foodImg1.src = './Resources/Pixel_Snake/food1.png'
+foodImg1.src = './Resources/Pixel_Snake/meat.png'
 const foodImg2 = new Image()
-foodImg2.src = './Resources/Pixel_Snake/food2.png'
+foodImg2.src = './Resources/Pixel_Snake/kolbaska.png'
 const foodImg3 = new Image()
-foodImg3.src = './Resources/Pixel_Snake/food3.png'
+foodImg3.src = './Resources/Pixel_Snake/food.png'
 
 const snakehead_img = new Image()
 snakehead_img.src = './Resources/Pixel_Snake/snake_head_up.png'

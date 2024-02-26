@@ -133,6 +133,7 @@ function snake_wall() {
 			tile * (height_coef / 2)
 		)
 		clearInterval(game)
+		game = setInterval(drawGame, speed)
 	}
 }
 
@@ -161,4 +162,4 @@ function drawGame() {
 	snake.unshift(new_snakehead)
 }
 
-let game = setInterval(drawGame, speed)
+var game = setInterval(drawGame, speed)

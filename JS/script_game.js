@@ -74,6 +74,9 @@ function food_position() {
 		y: y,
 	}
 }
+function food_random(){
+	let id = random_int(0, 4)
+}
 function snake_draw() {
 	for (let i = 0; i < snake.length; i++) {
 		if (i == 0) {

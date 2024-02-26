@@ -5,13 +5,13 @@ const ground = new Image()
 ground.src = './Resources/level.png'
 
 const foodImg = new Image()
-foodImg.src = './Resources/Pixel_Snake/meat_food.png'
+foodImg.src = './Resources/Pixel_Snake/food.png'
 
 const snakehead_img = new Image()
 snakehead_img.src = './Resources/Pixel_Snake/snake_head_up.png'
 
-//const snakecell_img = new Image()
-//snakecell_img.src = './Resources/snake_cell.png'
+const snakecell_img = new Image()
+snakecell_img.src = './Resources/Pixel_Snake/snake_cell.png'
 
 const tile = 32
 const width_coef = snake_game.width / tile
@@ -74,17 +74,29 @@ function food_position() {
 		y: y,
 	}
 }
-function food_random(){
+function food_id() {
 	let id = random_int(0, 4)
+	return id
+}
+function food_random() {
+	if (food_id() == 1) {
+		foodImg.src = './Resources/Pixel_Snake/food1.png'
+	} else if (food_id() == 2) {
+		foodImg.src = './Resources/Pixel_Snake/food2.png'
+	} else if (food_id() == 3) {
+		foodImg.src = './Resources/Pixel_Snake/food2.png'
+	} else {
+		foodImg.src = './Resources/Pixel_Snake/food.png'
+	}
 }
 function snake_draw() {
 	for (let i = 0; i < snake.length; i++) {
 		if (i == 0) {
 			ctx.drawImage(snakehead_img, snakehead.x, snakehead.y)
 		} else {
-			//ctx.drawImage(snakecell_img, snake[i].x, snake[i].y)
-			ctx.fillStyle = '#95993e'
-			ctx.fillRect(snake[i].x, snake[i].y, tile, tile)
+			ctx.drawImage(snakecell_img, snake[i].x, snake[i].y)
+			//ctx.fillStyle = '#95993e'
+			//ctx.fillRect(snake[i].x, snake[i].y, tile, tile)
 		}
 	}
 }

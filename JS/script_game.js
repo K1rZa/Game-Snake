@@ -10,6 +10,9 @@ foodImg.src = './Resources/food.png'
 const snakehead_img = new Image()
 snakehead_img.src = './Resources/snake_head_up.png'
 
+const snakecell_img = new Image()
+snakecell_img.src = './Resources/snake_cell_up.png'
+
 const tile = 32
 const width_coef = snake_game.width / tile
 const height_coef = snake_game.height / tile
@@ -46,6 +49,11 @@ function snake_move() {
 	if (dir == 'left') {
 		snakehead.x -= tile
 		snakehead_img.src = './Resources/snake_head_left.png'
+		/*for (let i = 0; i < snake.length; i++){
+			if (snake[i].y == snakehead.y){
+				snakecell_img.src = './Resources/snake_cell_left.png'
+			}
+		}*/
 	}
 	if (dir == 'right') {
 		snakehead.x += tile

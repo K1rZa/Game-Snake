@@ -2,7 +2,7 @@ const canvas = document.getElementById('snake_game')
 const ctx = canvas.getContext('2d')
 
 const ground = new Image()
-ground.src = './Resources/level.png'
+ground.src = './Resources/Narena.png'
 
 const foodImg1 = new Image()
 foodImg1.src = './Resources/Pixel_Snake/food1.png'
@@ -70,8 +70,8 @@ function random_int(min, max) {
 	return Math.floor(Math.random() * (max - (min - 1))) + min
 }
 function food_position() {
-	let x = random_int(2, width_coef - 4) * tile
-	let y = random_int(5, height_coef - 4) * tile
+	let x = random_int(2, width_coef - 2) * tile
+	let y = random_int(5, height_coef - 2) * tile
 	return {
 		x: x,
 		y: y,

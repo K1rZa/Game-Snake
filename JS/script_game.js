@@ -97,17 +97,6 @@ function snake_eat() {
 		snake.pop()
 	}
 }
-//function set_speed() {
-//	if (score == 2) {
-//		speed = speed - 25
-//	}
-//	if (score == 5) {
-//		speed = speed - 50
-//	}
-//	if (score == 7) {
-//		speed = speed - 75
-//	}
-//}
 function snake_eat_tail(head, arr) {
 	for (let i = 0; i < arr.length; i++) {
 		if (head.x == arr[i].x && head.y == arr[i].y) clearInterval(game)
@@ -137,8 +126,6 @@ function drawGame() {
 	snake_wall()
 
 	snake_move()
-
-	//set_speed()
 
 	let new_snakehead = {
 		x: snakehead.x,

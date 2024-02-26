@@ -2,7 +2,7 @@ const canvas = document.getElementById('snake_game')
 const ctx = canvas.getContext('2d')
 
 const ground = new Image()
-ground.src = './Resources/Stone_Narena.png'
+ground.src = './Resources/Stone_Arena.png'
 
 const foodImg1 = new Image()
 foodImg1.src = './Resources/Pixel_Snake/meat.png'
@@ -115,8 +115,8 @@ function snake_eat_tail(head, arr) {
 			ctx.font = '60px Arial'
 			ctx.fillText(
 				'Game Over',
-				tile * (width_coef / 2) - 2.5 * tile,
-				tile * (height_coef / 2)
+				tile * (width_coef / 2) - 5 * tile,
+				tile * (height_coef / 2) + 1.5 * tile
 			)
 			clearInterval(game)
 		}
@@ -133,8 +133,8 @@ function snake_wall() {
 		ctx.font = '60px Arial'
 		ctx.fillText(
 			'Game Over',
-			tile * (width_coef / 2) - 2.5 * tile,
-			tile * (height_coef / 2)
+			tile * (width_coef / 2) - 5 * tile,
+			tile * (height_coef / 2) + 1.5 * tile
 		)
 		clearInterval(game)
 	}

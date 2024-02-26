@@ -111,6 +111,7 @@ function snake_eat() {
 function snake_eat_tail(head, arr) {
 	for (let i = 0; i < arr.length; i++) {
 		if (head.x == arr[i].x && head.y == arr[i].y) {
+			ctx.fillStyle = 'red'
 			ctx.fillText(
 				'Game Over',
 				tile * (width_coef / 2) - 2.5 * tile,
@@ -127,6 +128,7 @@ function snake_wall() {
 		snakehead.y < 4 * tile ||
 		snakehead.y > tile * (height_coef - 3)
 	) {
+		ctx.fillStyle = 'red'
 		ctx.fillText(
 			'Game Over',
 			tile * (width_coef / 2) - 2.5 * tile,

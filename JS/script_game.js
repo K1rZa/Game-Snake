@@ -48,15 +48,19 @@ function direction(event) {
 function snake_move() {
 	if (dir == 'left') {
 		snakehead.x -= tile
+		snakehead_img.src = './Resources/Pixel_Snake/snake_head_left.png'
 	}
 	if (dir == 'right') {
 		snakehead.x += tile
+		snakehead_img.src = './Resources/Pixel_Snake/snake_head_right.png'
 	}
 	if (dir == 'up') {
 		snakehead.y -= tile
+		snakehead_img.src = './Resources/Pixel_Snake/snake_head_up.png'
 	}
 	if (dir == 'down') {
 		snakehead.y += tile
+		snakehead_img.src = './Resources/Pixel_Snake/snake_head_down.png'
 	}
 }
 function random_int(min, max) {
@@ -70,13 +74,10 @@ function food_position() {
 		y: y,
 	}
 }
-/* */
 function snake_draw() {
 	for (let i = 0; i < snake.length; i++) {
 		if (i == 0) {
 			ctx.drawImage(snakehead_img, snakehead.x, snakehead.y)
-			//ctx.fillStyle = 'red'
-			//ctx.fillRect(snakehead.x, snakehead.y, tile, tile)
 		} else {
 			//ctx.drawImage(snakecell_img, snake[i].x, snake[i].y)
 			ctx.fillStyle = '#95993e'
@@ -100,17 +101,6 @@ function snake_eat() {
 		snake.pop()
 	}
 }
-//function set_speed() {
-//	if (score == 2) {
-//		speed = speed - 25
-//	}
-//	if (score == 5) {
-//		speed = speed - 50
-//	}
-//	if (score == 7) {
-//		speed = speed - 75
-//	}
-//}
 function snake_eat_tail(head, arr) {
 	for (let i = 0; i < arr.length; i++) {
 		if (head.x == arr[i].x && head.y == arr[i].y) clearInterval(game)
@@ -140,8 +130,6 @@ function drawGame() {
 	snake_wall()
 
 	snake_move()
-
-	//set_speed()
 
 	let new_snakehead = {
 		x: snakehead.x,

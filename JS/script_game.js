@@ -2,7 +2,7 @@ const canvas = document.getElementById('snake_game')
 const ctx = canvas.getContext('2d')
 
 const ground = new Image()
-ground.src = './Resources/Narena.png'
+ground.src = './Resources/Stone_Narena.png'
 
 const foodImg1 = new Image()
 foodImg1.src = './Resources/Pixel_Snake/food1.png'

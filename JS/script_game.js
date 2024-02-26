@@ -70,8 +70,8 @@ function random_int(min, max) {
 	return Math.floor(Math.random() * (max - (min - 1))) + min
 }
 function food_position() {
-	let x = random_int(2, width_coef - 2) * tile
-	let y = random_int(5, height_coef - 2) * tile
+	let x = random_int(2, width_coef - 3) * tile
+	let y = random_int(5, height_coef - 3) * tile
 	return {
 		x: x,
 		y: y,
@@ -89,15 +89,13 @@ function snake_draw() {
 			ctx.drawImage(snakehead_img, snakehead.x, snakehead.y)
 		} else {
 			ctx.drawImage(snakecell_img, snake[i].x, snake[i].y)
-			//ctx.fillStyle = '#95993e'
-			//ctx.fillRect(snake[i].x, snake[i].y, tile, tile)
 		}
 	}
 }
 function score_draw() {
 	ctx.fillStyle = 'white'
-	ctx.font = '50px Arial'
-	ctx.fillText(score, tile * 2.5, tile * 1.7)
+	ctx.font = '30px Arial'
+	ctx.fillText(score, tile * 4.4, tile * 1.85)
 }
 function snake_eat() {
 	if (snakehead.x == food.x && snakehead.y == food.y) {
@@ -112,7 +110,14 @@ function snake_eat() {
 }
 function snake_eat_tail(head, arr) {
 	for (let i = 0; i < arr.length; i++) {
-		if (head.x == arr[i].x && head.y == arr[i].y) clearInterval(game)
+		if (head.x == arr[i].x && head.y == arr[i].y) {
+			ctx.fillText(
+				'Game Over',
+				tile * (width_coef / 2) - 2.5 * tile,
+				tile * (height_coef / 2)
+			)
+			clearInterval(game)
+		}
 	}
 }
 function snake_wall() {
@@ -120,9 +125,15 @@ function snake_wall() {
 		snakehead.x < 2 * tile ||
 		snakehead.x > tile * (width_coef - 3) ||
 		snakehead.y < 4 * tile ||
-		snakehead.y > tile * (height_coef - 4)
-	)
+		snakehead.y > tile * (height_coef - 3)
+	) {
+		ctx.fillText(
+			'Game Over',
+			tile * (width_coef / 2) - 2.5 * tile,
+			tile * (height_coef / 2)
+		)
 		clearInterval(game)
+	}
 }
 
 function drawGame() {
@@ -150,4 +161,4 @@ function drawGame() {
 	snake.unshift(new_snakehead)
 }
 
-let game = setInterval(drawGame, speed)
+var game = setInterval(drawGame, speed)

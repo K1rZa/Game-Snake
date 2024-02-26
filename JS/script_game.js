@@ -70,6 +70,7 @@ function food_position() {
 		y: y,
 	}
 }
+/* */
 function snake_draw() {
 	for (let i = 0; i < snake.length; i++) {
 		if (i == 0) {

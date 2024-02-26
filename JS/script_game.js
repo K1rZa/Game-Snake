@@ -48,15 +48,19 @@ function direction(event) {
 function snake_move() {
 	if (dir == 'left') {
 		snakehead.x -= tile
+		snakehead_img.src = './Resources/Pixel_Snake/snake_head_left.png'
 	}
 	if (dir == 'right') {
 		snakehead.x += tile
+		snakehead_img.src = './Resources/Pixel_Snake/snake_head_right.png'
 	}
 	if (dir == 'up') {
 		snakehead.y -= tile
+		snakehead_img.src = './Resources/Pixel_Snake/snake_head_up.png'
 	}
 	if (dir == 'down') {
 		snakehead.y += tile
+		snakehead_img.src = './Resources/Pixel_Snake/snake_head_down.png'
 	}
 }
 function random_int(min, max) {

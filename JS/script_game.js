@@ -133,7 +133,6 @@ function snake_wall() {
 			tile * (height_coef / 2)
 		)
 		clearInterval(game)
-		game = setInterval(drawGame, speed)
 	}
 }
 

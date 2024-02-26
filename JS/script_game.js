@@ -11,7 +11,7 @@ const snakehead_img = new Image()
 snakehead_img.src = './Resources/Pixel_Snake/snake_head_up.png'
 
 //const snakecell_img = new Image()
-//snakecell_img.src = './Resources/snake_cell_up.png'
+//snakecell_img.src = './Resources/snake_cell.png'
 
 const tile = 32
 const width_coef = snake_game.width / tile
@@ -48,19 +48,15 @@ function direction(event) {
 function snake_move() {
 	if (dir == 'left') {
 		snakehead.x -= tile
-		snakehead_img.src = './Resources/Pixel_Snake/snake_head_left.png'
 	}
 	if (dir == 'right') {
 		snakehead.x += tile
-		snakehead_img.src = './Resources/Pixel_Snake/snake_head_right.png'
 	}
 	if (dir == 'up') {
 		snakehead.y -= tile
-		snakehead_img.src = './Resources/Pixel_Snake/snake_head_up.png'
 	}
 	if (dir == 'down') {
 		snakehead.y += tile
-		snakehead_img.src = './Resources/Pixel_Snake/snake_head_down.png'
 	}
 }
 function random_int(min, max) {

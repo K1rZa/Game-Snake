@@ -120,7 +120,7 @@ function snake_wall() {
 		snakehead.x < 2 * tile ||
 		snakehead.x > tile * (width_coef - 3) ||
 		snakehead.y < 4 * tile ||
-		snakehead.y > tile * (height_coef - 4)
+		snakehead.y > tile * (height_coef - 3)
 	)
 		clearInterval(game)
 }

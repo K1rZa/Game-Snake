@@ -3,6 +3,8 @@ const ctx = canvas.getContext('2d')
 
 const ground = new Image()
 ground.src = './Resources/Stone_Arena.png'
+const plashka = new Image()
+plashka.src = './Resources/Plashka.png'
 
 const foodImg1 = new Image()
 foodImg1.src = './Resources/Pixel_Snake/meat.png'
@@ -31,13 +33,15 @@ let food = {
 
 let snake = []
 snake[0] = {
-	x: 9 * tile,
-	y: 10 * tile,
+	x: 5 * tile,
+	y: 7 * tile,
 }
 let snakehead = {
 	x: snake[0].x,
 	y: snake[0].y,
 }
+
+var game = setInterval(drawGame, speed)
 
 document.addEventListener('keydown', direction)
 
@@ -111,6 +115,7 @@ function snake_eat() {
 function snake_eat_tail(head, arr) {
 	for (let i = 0; i < arr.length; i++) {
 		if (head.x == arr[i].x && head.y == arr[i].y) {
+			ctx.drawImage(plashka, tile * 5, tile * 8)
 			ctx.fillStyle = 'red'
 			ctx.font = '60px Arial'
 			ctx.fillText(
@@ -129,6 +134,7 @@ function snake_wall() {
 		snakehead.y < 4 * tile ||
 		snakehead.y > tile * (height_coef - 3)
 	) {
+		ctx.drawImage(plashka, tile * 5, tile * 8)
 		ctx.fillStyle = 'red'
 		ctx.font = '60px Arial'
 		ctx.fillText(
@@ -164,5 +170,3 @@ function drawGame() {
 
 	snake.unshift(new_snakehead)
 }
-
-var game = setInterval(drawGame, speed)

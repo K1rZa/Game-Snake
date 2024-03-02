@@ -116,12 +116,12 @@ function snake_eat_tail(head, arr) {
 	for (let i = 0; i < arr.length; i++) {
 		if (head.x == arr[i].x && head.y == arr[i].y) {
 			ctx.drawImage(plashka, tile * 5, tile * 8)
-			ctx.fillStyle = 'red'
-			ctx.font = '60px Arial'
+			ctx.fillStyle = 'white'
+			ctx.font = '55px Arial'
 			ctx.fillText(
 				'Game Over',
-				tile * (width_coef / 2) - 5 * tile,
-				tile * (height_coef / 2) + 1.5 * tile
+				tile * (width_coef / 2) - 4.45 * tile,
+				tile * (height_coef / 2) + 0.6 * tile
 			)
 			clearInterval(game)
 		}
@@ -135,12 +135,12 @@ function snake_wall() {
 		snakehead.y > tile * (height_coef - 3)
 	) {
 		ctx.drawImage(plashka, tile * 5, tile * 8)
-		ctx.fillStyle = 'red'
-		ctx.font = '60px Arial'
+		ctx.fillStyle = 'white'
+		ctx.font = '55px Arial'
 		ctx.fillText(
 			'Game Over',
-			tile * (width_coef / 2) - 5 * tile,
-			tile * (height_coef / 2) + 1.5 * tile
+			tile * (width_coef / 2) - 4.45 * tile,
+			tile * (height_coef / 2) + 0.6 * tile
 		)
 		clearInterval(game)
 	}
